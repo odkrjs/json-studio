@@ -1,0 +1,18 @@
+{
+  "orderId": "SO-2026-001",
+  "status": "pending",
+  "customer": {
+    "name": "Lin Xiaoman",
+    "vip": false,
+    "tags": ["new"]
+  },
+  "items": [
+    { "sku": "A-100", "qty": 2, "price": 39.9 },
+    { "sku": "B-200", "qty": 1, "price": 128 }
+  ],
+  "meta": {
+    "source": "web",
+    "payload": "{\"event\":\"order.created\",\"id\":42}"
+  },
+  "total": 207.8
+}

@@ -1,0 +1,53 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: Core tests and app build
+    runs-on: macos-14
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Check JavaScript syntax
+        run: |
+          node --check Resources/core.js
+          node --check Resources/app.js
+
+      - name: Run core tests
+        run: node --test tests/core.test.js
+
+      - name: Build universal app
+        run: ./build.sh
+
+      - name: Verify code signature
+        run: codesign --verify --deep --strict "build/JSON Studio.app"
+
+      - name: Build release archive
+        run: ./make-release.sh
+
+      - name: Upload release archive
+        uses: actions/upload-artifact@v4
+        with:
+          name: JSONStudio-macOS
+          path: |
+            dist/*.zip
+            dist/*.sha256
+          if-no-files-found: error

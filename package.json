@@ -1,0 +1,27 @@
+{
+  "name": "json-studio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A native macOS JSON workbench for formatting, tree exploration, unescaping, and key-order-insensitive comparison.",
+  "license": "MIT",
+  "author": "JSON Studio contributors",
+  "keywords": [
+    "json",
+    "macos",
+    "diff",
+    "developer-tools",
+    "unescape",
+    "tree-view"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "test": "node --test tests/core.test.js",
+    "test:ui": "node tests/ui-check.mjs",
+    "check:js": "node --check Resources/core.js && node --check Resources/app.js",
+    "check": "npm run check:js && npm test",
+    "build": "./build.sh",
+    "release": "./make-release.sh"
+  }
+}

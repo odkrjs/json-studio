@@ -1,0 +1,84 @@
+name: Bug report
+description: Report a reproducible problem with JSON Studio
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to report a bug. Please search existing issues first and remove any secrets or private data from samples and screenshots.
+  - type: input
+    id: macos-version
+    attributes:
+      label: macOS version
+      description: The version shown in Apple menu → About This Mac.
+      placeholder: "macOS 14.5 (23F79)"
+    validations:
+      required: true
+  - type: input
+    id: app-version
+    attributes:
+      label: JSON Studio version
+      placeholder: "1.0.0"
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Format / tree view
+        - Semantic compare
+        - Unescape String
+        - File import
+        - Editor / input
+        - Native menu / window
+        - Packaging / installation
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: Include the exact actions that trigger the problem.
+      placeholder: |
+        1. Open JSON Studio
+        2. Paste ...
+        3. Click ...
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+    validations:
+      required: true
+  - type: textarea
+    id: json-sample
+    attributes:
+      label: Minimal JSON sample (optional)
+      description: Redact any private information. A minimal pair of documents is the most useful input for comparison bugs.
+      render: json
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots or logs (optional)
+      description: Drag images here. Remove tokens, customer data, and other sensitive information.
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Checklist
+      options:
+        - label: I have searched existing issues and this is not a duplicate.
+          required: true
+        - label: I have removed secrets and private data from this report.
+          required: true
+        - label: I agree to follow the Code of Conduct.
+          required: true

@@ -1,0 +1,22 @@
+{
+  "status": "paid",
+  "orderId": "SO-2026-001",
+  "customer": {
+    "vip": true,
+    "name": "Lin Xiaoman",
+    "tags": ["new", "priority"]
+  },
+  "items": [
+    { "sku": "A-100", "price": 35.9, "qty": 2 },
+    { "sku": "B-200", "qty": 1, "price": 128 }
+  ],
+  "coupon": {
+    "code": "WELCOME10",
+    "discount": 10
+  },
+  "meta": {
+    "payload": "{\"event\":\"order.created\",\"id\":42}",
+    "source": "web"
+  },
+  "total": 207.8
+}

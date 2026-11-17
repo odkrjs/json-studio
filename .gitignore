@@ -1,0 +1,14 @@
+.DS_Store
+
+# Build and release artifacts
+build/
+dist/
+Resources/assets/AppIcon.iconset/
+.chrome-profile/
+*.log
+
+# Editor and tooling state
+.vscode/
+.idea/
+node_modules/
+npm-debug.log*
